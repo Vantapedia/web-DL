@@ -1,3 +1,5 @@
+const platformPatterns = require('../system/patterns');
+
 class TeraboxDownloader {
     constructor(url) {
         this.url = url;
