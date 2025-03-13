@@ -1,4 +1,4 @@
-/*const FIXED_TIMESTAMP = 1739185749634;
+const FIXED_TIMESTAMP = 1739185749634;
 const SECRECT_KEY = "46e9243172efe7ed14fa58a98949d9e3a6cc7ec3aa0ae5d21c1654e507de884c";
 const BASE_URL = "https://instasupersave.com";
 const URL_MSEC = "/msec";
@@ -9,7 +9,7 @@ class InstagramDownloader {
         this.url = url;
         this.headers = {
             "authority": "instasupersave.com",
-/            "accept": "*",
+            "accept": "*/*",
             "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
             "content-type": "application/json",
             "origin": "https://instasupersave.com",
@@ -144,9 +144,9 @@ class InstagramDownloader {
     }
 }
 
-module.exports = InstagramDownloader;*/
+module.exports = InstagramDownloader;
 
-const axios = require('axios');
+/*const axios = require('axios');
 
 class InstagramDownloader {
     constructor(url) {
@@ -193,4 +193,4 @@ class InstagramDownloader {
     }
 }
 
-module.exports = InstagramDownloader;
+module.exports = InstagramDownloader;*/
