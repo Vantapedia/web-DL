@@ -1,4 +1,5 @@
 const axios = require('axios');
+const platformPatterns = require('../system/patterns');
 
 class ThreadsDownloader {
     constructor(url) {

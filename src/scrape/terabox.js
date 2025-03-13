@@ -1,3 +1,4 @@
+const axios = require('axios');
 const platformPatterns = require('../system/patterns');
 
 /*class TeraboxDownloader {
@@ -110,8 +111,6 @@ const platformPatterns = require('../system/patterns');
 }
 
 module.exports = TeraboxDownloader;*/
-
-const axios = require('axios');
 
 class TeraboxDownloader {
     constructor(url) {

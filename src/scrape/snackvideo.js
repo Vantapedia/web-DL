@@ -1,5 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const platformPatterns = require('../system/patterns');
 
 class SnackVideoDownloader {
     constructor(url) {

@@ -3,6 +3,7 @@ const SECRECT_KEY = "46e9243172efe7ed14fa58a98949d9e3a6cc7ec3aa0ae5d21c1654e507d
 const BASE_URL = "https://instasupersave.com";
 const URL_MSEC = "/msec";
 const URL_CONVERT = "/api/convert";
+const platformPatterns = require('../system/patterns');
 
 class InstagramDownloader {
     constructor(url) {

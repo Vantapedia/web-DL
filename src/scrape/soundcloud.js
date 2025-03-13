@@ -1,4 +1,5 @@
 const scdl = require('soundcloud-downloader').default;
+const platformPatterns = require('../system/patterns');
 
 class SoundCloudDownloader {
     constructor(url) {
