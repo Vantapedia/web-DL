@@ -1,4 +1,4 @@
-const FIXED_TIMESTAMP = 1739185749634;
+/*const FIXED_TIMESTAMP = 1739185749634;
 const SECRECT_KEY = "46e9243172efe7ed14fa58a98949d9e3a6cc7ec3aa0ae5d21c1654e507de884c";
 const BASE_URL = "https://instasupersave.com";
 const URL_MSEC = "/msec";
@@ -9,7 +9,7 @@ class InstagramDownloader {
         this.url = url;
         this.headers = {
             "authority": "instasupersave.com",
-            "accept": "*/*",
+/            "accept": "*",
             "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
             "content-type": "application/json",
             "origin": "https://instasupersave.com",
@@ -139,6 +139,69 @@ class InstagramDownloader {
 
         } catch (error) {
             console.error('Instagram Download Error:', error);
+            throw new Error('Gagal mengunduh dari Instagram: ' + error.message);
+        }
+    }
+}
+
+module.exports = InstagramDownloader;*/
+
+const axios = require('axios');
+
+class InstagramDownloader {
+    constructor(url) {
+        this.url = url;
+        this.apiUrl = 'https://api.ferdev.my.id/downloader/instagram?link=';
+    }
+
+    async fetchApiData() {
+        try {
+            const response = await axios.get(`${this.apiUrl}${encodeURIComponent(this.url)}`);
+            if (response.status !== 200) {
+                throw new Error(`Gagal mengambil data: ${response.statusText}`);
+            }
+            return response.data;
+        } catch (error) {
+            console.error('Gagal mengambil data Instagram:', error);
+            throw new Error('Error mengambil data Instagram: ' + error.message);
+        }
+    }
+
+    async download() {
+        try {
+            const result = await this.fetchApiData();
+            const { meta, url, thumb } = result;
+
+            if (!meta || !url) {
+                throw new Error('Media tidak ditemukan');
+            }
+
+            const formattedDate = new Date(meta.taken_at * 1000).toLocaleString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            return {
+                platform: 'instagram',
+                caption: meta.title || '',
+                author: meta.username || '',
+                username: meta.username || '',
+                'img-thumb': thumb || null,
+                like: meta.like_count || 0,
+                views: 0,
+                comments: meta.comment_count || 0,
+                date: formattedDate,
+                downloads: url.map(media => ({
+                    type: media.type === 'jpg' || media.type === 'jpeg' || media.type === 'png' ? 'download_image' : 'download_video_hd',
+                    url: media.url,
+                    filename: `instagram_${Date.now()}.${media.ext}`
+                }))
+            };
+        } catch (error) {
+            console.error('Gagal mengunduh Instagram:', error);
             throw new Error('Gagal mengunduh dari Instagram: ' + error.message);
         }
     }
