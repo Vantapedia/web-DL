@@ -169,31 +169,17 @@ class InstagramDownloader {
 
     async download() {
         try {
-            const result = await this.fetchApiData();
-            const { meta, url, thumb } = result;
+            const { meta, url, thumb } = await this.fetchApiData();
 
             if (!meta || !url) {
                 throw new Error('Media tidak ditemukan');
             }
 
-            const formattedDate = new Date(meta.taken_at * 1000).toLocaleString('id-ID', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-
             return {
                 platform: 'instagram',
                 caption: meta.title || '',
                 author: meta.username || '',
-                username: meta.username || '',
                 'img-thumb': thumb || null,
-                like: meta.like_count || 0,
-                views: 0,
-                comments: meta.comment_count || 0,
-                date: formattedDate,
                 downloads: url.map(media => ({
                     type: media.type === 'jpg' || media.type === 'jpeg' || media.type === 'png' ? 'download_image' : 'download_video_hd',
                     url: media.url,
