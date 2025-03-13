@@ -7,7 +7,7 @@ const platformPatterns = {
     spotify: /(?:https?:\/\/)?(?:open\.)?spotify\.com(?:\/.*)?/i,
     facebook: /(?:https?:\/\/)?(?:www\.|m\.)?facebook\.com(?:\/.*)?/i,
     instagram: /(?:https?:\/\/)?(?:www\.|m\.)?instagram\.com(?:\/.*)?/i,
-    terabox: /(?:https?:\/\/)?(?:www\.|m\.)?(?:terabox\.com|teraboxapp\.com)(?:\/.*)?/i,
+    terabox: /(?:https?:\/\/)?(?:www\.|m\.)?(?:terabox\.com|1024terabox\.com|teraboxapp\.com)(?:\/.*)?/i,
     snackvideo: /(?:https?:\/\/)?(?:www\.|m\.)?snackvideo\.com(?:\/.*)?/i
 };
 
