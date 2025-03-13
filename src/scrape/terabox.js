@@ -1,4 +1,4 @@
-class TeraboxDownloader {
+/*class TeraboxDownloader {
     constructor(url) {
         this.url = url;
     }
@@ -103,6 +103,85 @@ class TeraboxDownloader {
         } catch (error) {
             console.error("Terabox Download Error:", error);
             throw new Error("Gagal mengunduh dari Terabox: " + error.message);
+        }
+    }
+}
+
+module.exports = TeraboxDownloader;*/
+
+const axios = require('axios');
+
+class TeraboxDownloader {
+    constructor(url) {
+        this.url = url;
+        this.apiUrl = 'https://api.ferdev.my.id/downloader/terabox?link=';
+    }
+
+    async fetchApiData() {
+        try {
+            const response = await axios.get(`${this.apiUrl}${encodeURIComponent(this.url)}`);
+            if (response.status !== 200) {
+                throw new Error(`Failed to fetch data from API: ${response.statusText}`);
+            }
+            return response.data;
+        } catch (error) {
+            console.error("API Request Error:", error);
+            throw new Error('Error fetching Terabox data: ' + error.message);
+        }
+    }
+
+    async getDownloadLink(file) {
+        const { downloadLink } = file;
+        const ext = file.filename.split('.').pop().toLowerCase();
+        let type = 'download_video_hd';
+
+        if (['mp4', 'mkv', 'avi'].includes(ext)) {
+            type = 'download_video_hd';
+        } else if (['mp3', 'wav', 'ogg'].includes(ext)) {
+            type = 'download_audio';
+        } else if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+            type = 'download_image';
+        }
+
+        return {
+            type,
+            url: downloadLink,
+            filename: file.filename,
+            size: file.size
+        };
+    }
+
+    async download() {
+        try {
+            const { list } = await this.fetchApiData();
+
+            if (!list || list.length === 0) {
+                throw new Error("File not found");
+            }
+
+            const downloads = await Promise.all(list.map(this.getDownloadLink));
+
+            return {
+                platform: 'terabox',
+                caption: list[0].filename,
+                author: 'Terabox User',
+                username: 'terabox_user',
+                'img-thumb': list[0].thumbs?.url || '',
+                like: 0,
+                views: 0,
+                comments: 0,
+                date: new Date().toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                }),
+                downloads
+            };
+        } catch (error) {
+            console.error("Terabox Download Error:", error);
+            throw new Error("Failed to download from Terabox: " + error.message);
         }
     }
 }
