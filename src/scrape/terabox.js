@@ -1,4 +1,4 @@
-/*class TeraboxDownloader {
+class TeraboxDownloader {
     constructor(url) {
         this.url = url;
     }
@@ -107,9 +107,9 @@
     }
 }
 
-module.exports = TeraboxDownloader;*/
+module.exports = TeraboxDownloader;
 
-const axios = require('axios');
+/*const axios = require('axios');
 
 class TeraboxDownloader {
     constructor(url) {
@@ -186,4 +186,4 @@ class TeraboxDownloader {
     }
 }
 
-module.exports = TeraboxDownloader;
+module.exports = TeraboxDownloader;*/
