@@ -55,9 +55,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All-in-One Media Downloader</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -316,11 +317,20 @@
                     { name: 'RedNote', icon: 'fas fa-book' },
                     { name: 'Threads', icon: 'fab fa-at' },
                     { name: 'Soundcloud', icon: 'fab fa-soundcloud' },
+                    { name: 'Tidal', icon: 'fas fa-music' },
+                    { name: 'Joox', icon: 'fas fa-music' },
                     { name: 'Spotify', icon: 'fab fa-spotify' },
                     { name: 'Facebook', icon: 'fab fa-facebook' },
                     { name: 'Instagram', icon: 'fab fa-instagram' },
                     { name: 'Terabox', icon: 'fas fa-box' },
-                    { name: 'Snackvideo', icon: 'fas fa-video' }
+                    { name: 'Snackvideo', icon: 'fas fa-video' },
+                    { name: 'Youtube', icon: 'fab fa-youtube' },
+                    { name: 'Pinterest', icon: 'fab fa-pinterest' },
+                    { name: 'LinkedIn', icon: 'fab fa-linkedin' },
+                    { name: 'Twitter', icon: 'fab fa-twitter' },
+                    { name: 'Reddit', icon: 'fab fa-reddit' },
+                    { name: 'Google Drive', icon: 'fas fa-cloud' },
+                    { name: 'Mediafire', icon: ' fas fa-cloud' }
                 ]}">
                     <template x-for="(platform, index) in platforms" :key="index">
                         <li class="flex flex-col items-center p-3 bg-white/90 dark:bg-gray-700/80 rounded-xl border border-gray-100/50 dark:border-gray-600/20 transition-all duration-300 hover:shadow-lg"
@@ -676,5 +686,8 @@
             </div>
         </div>
     </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html> 
