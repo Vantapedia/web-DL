@@ -74,7 +74,7 @@ class TeraboxDownloader {
                     type = 'download_audio';
                 } else if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg', 'webp', 'ico', 'cur', 'heif', 'heic', 'avif', 'ifif', 'iff'].includes(ext)) {
                     type = 'download_image';
-                } else if (['zip', 'rar', 'pdf', 'apk', 'docx', 'pptx'].includes(ext)) {
+                } else if (['zip', 'rar', 'pdf', 'apk', 'docx', 'pptx', 'file'].includes(ext)) {
                     type = 'download_file';
                 }
 
