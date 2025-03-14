@@ -1,4 +1,4 @@
-document.getElementById('downloadBtn').addEventListener('click', async () => {
+document.getElementById('downloadMedia').addEventListener('click', async () => {
     const url = document.getElementById('fileUrl').value; // Ubah ID input sesuai kebutuhan
     const resultDiv = document.getElementById('result');
 
