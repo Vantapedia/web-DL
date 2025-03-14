@@ -1,7 +1,7 @@
 const axios = require('axios');
 const platformPatterns = require('../system/patterns');
 
-/*class TeraboxDownloader {
+class TeraboxDownloader {
     constructor(url) {
         this.url = url;
     }
@@ -110,9 +110,9 @@ const platformPatterns = require('../system/patterns');
     }
 }
 
-module.exports = TeraboxDownloader;*/
+module.exports = TeraboxDownloader;
 
-class TeraboxDownloader {
+/*class TeraboxDownloader {
     constructor(url) {
         this.url = url;
         this.apiUrl = 'https://api.ferdev.my.id/downloader/terabox?link=';
@@ -187,4 +187,4 @@ class TeraboxDownloader {
     }
 }
 
-module.exports = TeraboxDownloader;
+module.exports = TeraboxDownloader;*/
