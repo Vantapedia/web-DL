@@ -72,8 +72,10 @@ class TeraboxDownloader {
                     type = 'download_video_hd';
                 } else if (['mp3', 'wav', 'ogg'].includes(ext)) {
                     type = 'download_audio';
-                } else if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+                } else if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg', 'webp', 'ico', 'cur', 'heif', 'heic', 'avif', 'ifif', 'iff'].includes(ext)) {
                     type = 'download_image';
+                } else if (['zip', 'rar', 'pdf', 'apk', 'docx', 'pptx'].includes(ext)) {
+                    type = 'download_file';
                 }
 
                 return {
