@@ -57,8 +57,6 @@
     <title>All-in-One Media Downloader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -161,12 +159,12 @@
                             </div>
 
                                                         <div class="py-1">
-                                <a href="https://github.com/Vantapedia/Web-DL" target="_blank"
+                                <a href="https://github.com/Vantapedia/web-DL" target="_blank"
                                     :class="`group flex items-center px-3 py-2 text-xs text-gray-800 dark:text-white hover:bg-${currentColor}-50/50 dark:hover:bg-${currentColor}-500/10 transition-colors`">
                                     <i :class="`fas fa-code text-${currentColor}-500 dark:text-${currentColor}-400 mr-2 w-4 transition-transform duration-300 group-hover:scale-110`"></i>
                                     <span :class="`transition-colors duration-300 group-hover:text-${currentColor}-500 dark:group-hover:text-${currentColor}-400`">Source Code</span>
                                 </a>
-                                <a href="https://github.com/Vantapedia/Web-DL/issues" target="_blank"
+                                <a href="https://github.com/Vantapedia/web-DL/issues" target="_blank"
                                     :class="`group flex items-center px-3 py-2 text-xs text-gray-800 dark:text-white hover:bg-${currentColor}-50/50 dark:hover:bg-${currentColor}-500/10 transition-colors`">
                                     <i :class="`fas fa-bug text-${currentColor}-500 dark:text-${currentColor}-400 mr-2 w-4 transition-transform duration-300 group-hover:scale-110`"></i>
                                     <span :class="`transition-colors duration-300 group-hover:text-${currentColor}-500 dark:group-hover:text-${currentColor}-400`">Report Issue</span>
@@ -317,20 +315,11 @@
                     { name: 'RedNote', icon: 'fas fa-book' },
                     { name: 'Threads', icon: 'fab fa-at' },
                     { name: 'Soundcloud', icon: 'fab fa-soundcloud' },
-                    { name: 'Tidal', icon: 'fas fa-music' },
-                    { name: 'Joox', icon: 'fas fa-music' },
                     { name: 'Spotify', icon: 'fab fa-spotify' },
                     { name: 'Facebook', icon: 'fab fa-facebook' },
                     { name: 'Instagram', icon: 'fab fa-instagram' },
                     { name: 'Terabox', icon: 'fas fa-box' },
-                    { name: 'Snackvideo', icon: 'fas fa-video' },
-                    { name: 'Youtube', icon: 'fab fa-youtube' },
-                    { name: 'Pinterest', icon: 'fab fa-pinterest' },
-                    { name: 'LinkedIn', icon: 'fab fa-linkedin' },
-                    { name: 'Twitter', icon: 'fab fa-twitter' },
-                    { name: 'Reddit', icon: 'fab fa-reddit' },
-                    { name: 'Google Drive', icon: 'fas fa-cloud' },
-                    { name: 'Mediafire', icon: ' fas fa-cloud' }
+                    { name: 'Snackvideo', icon: 'fas fa-video' }
                 ]}">
                     <template x-for="(platform, index) in platforms" :key="index">
                         <li class="flex flex-col items-center p-3 bg-white/90 dark:bg-gray-700/80 rounded-xl border border-gray-100/50 dark:border-gray-600/20 transition-all duration-300 hover:shadow-lg"
@@ -686,8 +675,5 @@
             </div>
         </div>
     </template>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="/script.js"></script>
 </body>
 </html> 
